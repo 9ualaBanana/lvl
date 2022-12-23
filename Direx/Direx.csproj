@@ -6,13 +6,13 @@
     <Nullable>enable</Nullable>
 
 	<PackageId>Direx</PackageId>
-	<Version>0.1.0</Version>
+	<Version>0.2.0</Version>
 	<Authors>9ualaBanana</Authors>
 	<Company>9ualaBanana</Company>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<Description>Extended toolset for working with directories.</Description>
+	<Description>All language enhancements in one place.</Description>
 	<RepositoryUrl>https://github.com/9ualaBanana/Direx</RepositoryUrl>
-	<PackageTags>directory; io; extensions; temp; chaining; delete;</PackageTags>
+	<PackageTags>directory; stream; io; extensions; temp; chaining; delete;</PackageTags>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
