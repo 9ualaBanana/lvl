@@ -24,6 +24,28 @@ namespace System.IO;
 
 public static class DirectoryInfoExtensions
 {
+    /// <inheritdoc cref="DirectoryInfo.MoveTo(string)"/>
+    /// <remarks>Moves to <paramref name="source"/> child directories are supported.</remarks>
+    public static void MoveTo_(this DirectoryInfo source, string destDirName)
+    {
+        source.CopyTo(destDirName);
+        foreach (var file in source.EnumerateFiles())
+            file.Delete();
+        foreach (var directory in source.EnumerateDirectories().Where(directory => directory.FullName != destDirName))
+            directory.Delete(DeletionMode.Wipe);
+    }
+
+    public static void CopyTo(this DirectoryInfo source, string destDirName)
+    {
+        var destination = Directory.CreateDirectory(destDirName);
+        foreach (var file in source.EnumerateFiles())
+            file.CopyTo(Path.Combine(destination.FullName, file.Name));
+        foreach (var directory in source.EnumerateDirectories().Where(directory => directory.FullName != destination.FullName))
+            directory.CopyTo(Path.Combine(destDirName, directory.Name));
+    }
+
+    #region Delete
+
     /// <inheritdoc cref="DeleteAfter(DirectoryInfo, Action{DirectoryInfo}, DeletionMode)"/>
     public static void DeleteAfter(
         this DirectoryInfo directory,
@@ -198,5 +220,7 @@ public static class DirectoryInfoExtensions
         foreach (var file in directory.EnumerateFiles("*", SearchOption.AllDirectories).Where(file => file.IsReadOnly))
             file.IsReadOnly = false;
     }
+
+    #endregion
 }
 

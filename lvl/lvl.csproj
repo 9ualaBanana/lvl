@@ -1,16 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
-	<PackageId>Direx</PackageId>
-	<Version>0.2.0</Version>
+	<PackageId>lvl</PackageId>
+	<Version>1.0.0</Version>
 	<Authors>9ualaBanana</Authors>
 	<Company>9ualaBanana</Company>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<Description>All language enhancements in one place.</Description>
+	<Description>NextGen C#.</Description>
 	<RepositoryUrl>https://github.com/9ualaBanana/Direx</RepositoryUrl>
 	<PackageTags>directory; stream; io; extensions; temp; chaining; delete;</PackageTags>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
