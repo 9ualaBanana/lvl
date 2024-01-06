@@ -33,6 +33,8 @@ public static class DirectoryInfoExtensions
             file.Delete();
         foreach (var directory in source.EnumerateDirectories().Where(directory => directory.FullName != destDirName))
             directory.Delete(DeletionMode.Wipe);
+        if (source.GetDirectories().Length is 0)
+            source.Delete();
     }
 
     public static void CopyTo(this DirectoryInfo source, string destDirName)
